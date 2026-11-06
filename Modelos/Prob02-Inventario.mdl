@@ -1,0 +1,153 @@
+{UTF-8}
+Capacidad Deseada=600
+	~	
+	~		|
+
+Demanda de Clientes=RANDOM UNIFORM ( 15 , 40 , 2 )
+	~	
+	~		|
+
+Inventario en Almacen= INTEG (Tasa de recepcion-Tasa de despacho,
+		500)
+	~	
+	~		|
+
+Mercaderia Entregada= INTEG (Tasa de despacho,
+		0)
+	~	
+	~		|
+
+Ordenes en transito= INTEG (Tasa de Pedidos-Tasa de recepcion,
+		0)
+	~	
+	~		|
+
+Posicion de Inventario=Inventario en Almacen+Ordenes en transito
+	~	
+	~		|
+
+Tasa de despacho=MIN(Demanda de Clientes , Inventario en Almacen/Tiempo minimo de despacho\
+		 )
+	~	
+	~		|
+
+Tasa de Pedidos=MAX(0, (Capacidad Deseada - Posicion de Inventario )/Tiempo de Ajuste\
+		)
+	~	
+	~		|
+
+Tasa de recepcion=Ordenes en transito / Tiempo de Proovedor
+	~	
+	~		|
+
+Tiempo de Ajuste=2
+	~	
+	~		|
+
+Tiempo de Proovedor=5
+	~	
+	~		|
+
+Tiempo minimo de despacho=0.25
+	~	
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 60
+	~	Day
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Day
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Day [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Day [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,2
+10,1,Ordenes en transito,363,214,46,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,2,Inventario en Almacen,600,220,51,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,3,Mercaderia Entregada,858,228,46,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,4,6,1,100,0,0,22,0,192,0,-1--1--1,,1|(438,222)|
+1,5,6,2,4,0,0,22,0,192,0,-1--1--1,,1|(514,222)|
+11,6,0,473,222,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,7,Tasa de recepcion,473,256,46,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,8,10,2,100,0,0,22,0,192,0,-1--1--1,,1|(687,221)|
+1,9,10,3,4,0,0,22,0,192,0,-1--1--1,,1|(774,221)|
+11,10,0,730,221,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,11,Tasa de despacho,730,255,46,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,12,48,180,223,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,13,15,12,100,0,0,22,0,192,0,-1--1--1,,1|(214,223)|
+1,14,15,1,4,0,0,22,0,192,0,-1--1--1,,1|(284,223)|
+11,15,0,245,223,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,16,Tasa de Pedidos,245,257,61,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,17,Demanda de Clientes,879,140,49,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,18,Tiempo de Proovedor,556,135,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,19,Capacidad Deseada,175,148,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,20,Tiempo de Ajuste,177,403,65,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,21,Posicion de Inventario,404,361,46,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,22,19,16,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,23,21,16,1,0,0,0,0,192,0,-1--1--1,,1|(325,342)|
+1,24,20,16,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,25,2,21,1,0,0,0,0,192,0,-1--1--1,,1|(530,299)|
+1,26,1,21,1,0,0,0,0,192,0,-1--1--1,,1|(359,278)|
+1,27,18,7,1,0,0,0,0,192,0,-1--1--1,,1|(517,194)|
+1,28,1,7,1,0,0,0,0,192,0,-1--1--1,,1|(448,171)|
+1,29,17,11,1,0,0,0,0,192,0,-1--1--1,,1|(766,176)|
+1,30,2,11,1,0,0,0,0,192,0,-1--1--1,,1|(688,181)|
+10,31,Tiempo minimo de despacho,759,355,59,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,32,31,11,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+12,33,0,1305,129,296,96,3,7,0,4,-1,0,0,0,0-0-0,255-255-128,|||0-0-0,0,0,256,0,0,0
+Problema2|<<NnN>>|Un centro de distribución despacha mercadería diariamente según la demanda de los clientes. Para no quedarse sin stock, el sistema monitorea constantemente su capacidad; cuando el inventario físico sumado a los pedidos en tránsito cae por debajo del nivel deseado, se emiten nuevas órdenes de compra. El proveedor tarda 5 días en entregar la mercadería, generando un ciclo continuo de vaciado y llenado en el almacén.
+///---\\\
+:L<%^E!@
+1:current.vdfx
+4:Time
+5:Ordenes en transito
+9:current
+19:100,0
+24:0
+25:60
+26:60
+23:0
+15:0,0,0,0,0,0
+27:0,
+34:0,
+42:0
+72:0
+73:0
+95:0
+96:0
+97:0
+77:0
+78:0
+102:1
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:Vensim Sans|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1

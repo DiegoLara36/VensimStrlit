@@ -1,0 +1,161 @@
+{UTF-8}
+Adquisicion por marketing=500
+	~	
+	~		|
+
+Adquisicion Viral=Usuarios Activos * Tasa de Contacto * Fraccion de adopcion viral * \
+		(Usuario Potenciales / Poblacion total del mercado )
+	~	
+	~		|
+
+Efectividad de remarketing=0.05
+	~	
+	~		|
+
+Flujo de Abandono=Usuarios Activos / Tiempo medio de retencion
+	~	
+	~		|
+
+Flujo de Adquisicion=Adquisicion por marketing+Adquisicion Viral
+	~	
+	~		|
+
+Flujo de Recuperacion=UsuariosInactivos * Efectividad de remarketing
+	~	
+	~		|
+
+Fraccion de adopcion viral=0.02
+	~	
+	~		|
+
+Poblacion total del mercado=Usuario Potenciales+Usuarios Activos+UsuariosInactivos
+	~	
+	~		|
+
+Tasa de Contacto=5
+	~	
+	~		|
+
+Tiempo medio de retencion=12
+	~	
+	~		|
+
+Usuario Potenciales= INTEG (Flujo de Recuperacion-Flujo de Adquisicion,
+		100000)
+	~	
+	~		|
+
+Usuarios Activos= INTEG (Flujo de Adquisicion-Flujo de Abandono,
+		0)
+	~	
+	~		|
+
+UsuariosInactivos= INTEG (Flujo de Abandono-Flujo de Recuperacion,
+		0)
+	~	
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 60
+	~	Month
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Month
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Month [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Month [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,2
+10,1,Usuario Potenciales,151,280,46,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,2,Usuarios Activos,479,274,61,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,3,UsuariosInactivos,806,284,65,26,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,4,6,1,100,0,0,22,0,192,0,-1--1--1,,1|(242,270)|
+1,5,6,2,4,0,0,22,0,192,0,-1--1--1,,1|(358,270)|
+11,6,0,293,270,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,7,Flujo de Adquisicion,293,304,46,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,8,10,2,100,0,0,22,0,192,0,-1--1--1,,1|(584,278)|
+1,9,10,3,4,0,0,22,0,192,0,-1--1--1,,1|(690,278)|
+11,10,0,634,278,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,11,Flujo de Abandono,634,312,46,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,12,14,3,100,0,0,22,0,192,0,-1--1--1,,1|(806,159)|
+1,13,14,1,4,0,0,22,0,192,0,-1--1--1,,1|(151,159)|
+11,14,0,461,159,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,15,Flujo de Recuperacion,461,193,52,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,16,Adquisicion por marketing,280,394,59,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,17,Tasa de Contacto,620,555,64,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,18,Fraccion de adopcion viral,769,458,54,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,19,Tiempo medio de retencion,840,376,65,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,20,Efectividad de remarketing,392,93,54,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,21,Poblacion total del mercado,87,107,56,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,22,Adquisicion Viral,500,387,63,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,23,2,22,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,24,17,22,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,25,18,22,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,26,1,22,1,0,0,0,0,192,0,-1--1--1,,1|(229,418)|
+1,27,21,22,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,28,16,7,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,29,22,7,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,30,2,11,1,0,0,0,0,192,0,-1--1--1,,1|(568,332)|
+1,31,19,11,1,0,0,0,0,192,0,-1--1--1,,1|(736,369)|
+1,32,3,15,1,0,0,0,0,192,0,-1--1--1,,1|(753,230)|
+1,33,20,15,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,34,2,21,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,35,3,21,1,0,0,0,0,192,0,-1--1--1,,1|(649,126)|
+1,36,1,21,1,0,0,0,0,192,0,-1--1--1,,1|(90,209)|
+12,37,0,1263,77,274,99,3,7,0,36,-1,0,0,0,0-0-0,255-255-128,|||0-0-0,0,0,256,0,0,0
+Problema|<<NnN>>|Una startup SaaS lanza un software para un mercado potencial de 100,000 personas sin usuarios iniciales. La adopción crece mediante marketing y recomendaciones boca a boca, pero los clientes se cansan y cancelan el servicio con el tiempo. Para contrarrestar esta pérdida, la empresa implementa campañas de remarketing que buscan recuperar a los usuarios inactivos y estabilizar la base de suscriptores activos.
+30,38,CausaProb1.bmp,1253,401,313,188,8,0,0,0,-1,0,0,0,0,0,0,0,0,0
+///---\\\
+:L<%^E!@
+1:current.vdfx
+4:Time
+5:UsuariosInactivos
+9:current
+19:100,0
+24:0
+25:60
+26:60
+23:0
+15:0,0,0,0,0,0
+27:0,
+34:0,
+42:0
+72:0
+73:0
+95:0
+96:0
+97:0
+77:0
+78:0
+102:1
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:Vensim Sans|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1
